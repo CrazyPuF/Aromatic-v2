@@ -18,7 +18,6 @@ function showSlides(n) { //n = slide index = 1
   var i;                                        // na pocetku undefined
   var slides = document.getElementsByClassName("mySlides");//cita koliko ima slideova
   var dots = document.getElementsByClassName("dot");        //cita koliko ima dot-a i ispisuje koja je bila aktivirana prije
-console.log(dots);
   if (n > slides.length) {slideIndex = 1}              // u slucaju kad se stisne strelica za sljedeci slajd na zadnjem slajdu prebacit ce na prvi
   if (n < 1) {slideIndex = slides.length}              // takodjer ako se ide u nazad
   hideSlides(slides);
