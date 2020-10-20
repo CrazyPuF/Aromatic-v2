@@ -1,6 +1,6 @@
 var slideIndex = 0;
 showSlides(slideIndex);          //aktivira funkciju za slajd
-
+autoslides();
 
 // Next/previous controls
 function plusSlides(n) {
@@ -37,7 +37,7 @@ function activedots(dots) {
 
   }
 }
-autoslides();
+
  function autoslides() {
 
 
@@ -56,7 +56,7 @@ autoslides();
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  setTimeout(autoslides,10000); // Change image every 2 seconds
+  setTimeout(autoslides,5000); // Change image every 2 seconds
 }
 
 
