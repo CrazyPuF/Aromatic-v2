@@ -1,10 +1,11 @@
-var slideIndex = 0;
-showSlides(slideIndex);          //aktivira funkciju za slajd
-autoslides();
-
+var slideIndex = 1;
+showSlides(slideIndex);
+autoslides();          //aktivira funkciju za slajd
+var countern=0;
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);             // na klik se ubacuje 1,-1
+  countern += n;
+  showSlides(slideIndex += n);          // na klik se ubacuje 1,-1
 }
 
 // Thumbnail image controls
@@ -38,24 +39,27 @@ function activedots(dots) {
   }
 }
 
+
  function autoslides() {
 
+   if (countern>0 | countern<0) {countern=0;}
+  else{
+    var i;
+        var slides = document.getElementsByClassName("mySlides");
 
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
 
-  var dots = document.getElementsByClassName("dot");
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
   setTimeout(autoslides,5000); // Change image every 2 seconds
 }
 
